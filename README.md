@@ -1,6 +1,8 @@
 # MovieApp Web Python 
 Pedro Luis Yendo Fujiwara 758855
 
+Pedro Marques, RA: 769811
+
 It uses Poetry, Flask, Flask-Login, and a local SQLite database. 
 Moreover, this example was initially set up to run using Replit.com
 
@@ -12,4 +14,4 @@ Moreover, this example was initially set up to run using Replit.com
 
 >> poetry run python main.py
 >>
->> Pedro Marques, RA: 769811
+>> 
