@@ -3,6 +3,7 @@ from flask_login import login_required, login_user, logout_user
 from app.model.user_dao import UserDao
 from app.model.movie_dao import MovieDao
 from app.model.movie import Movie
+from app.model.user import User
 
 userDAO = UserDao()
 movieDAO = MovieDao()
@@ -73,3 +74,15 @@ def movies():
   for m in movieDAO.get_all():
     movies.append({"id": m.id, "name": m.name, "year": m.year})
   return render_template('movies.html', movies=movies)
+
+@bp.route('/user', methods=['GET', 'POST'])
+@login_required
+def user():
+  if request.method == "GET":
+    return render_template('user.html')
+  elif request.method == "POST":
+    user = User(request.form['username_field'], str(request.form['password_field']))
+    userDAO.register_user(user)
+    return redirect(url_for('main.main'))
+  else:
+    return redirect(url_for('main.main'))
